@@ -1,0 +1,24 @@
+# Node environment
+.cache.json
+node_modules/
+dist/
+.tmp
+.env
+node_build/
+
+# Testing
+coverage/
+
+# Misc
+.DS_Store
+._*
+Thumbs.db
+.cache
+.settings
+.tmproj
+*.diff
+*.err
+*.log
+*.vi
+*~
+.#*

@@ -1,0 +1,22 @@
+# Node environment
+.cache.json
+node_modules
+.tmp
+node_build/
+
+# Misc
+.DS_Store
+._*
+Thumbs.db
+.cache
+.settings
+.tmproj
+*.diff
+*.err
+*.log
+*.vi
+*~
+.#*
+
+# Docker Ignore
+.git
