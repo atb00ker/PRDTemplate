@@ -7,8 +7,9 @@ dist/
 node_build/
 
 # Python/Django environment
-Pipfile
+Pipfile*
 local_settings.py
+__pycache__/
 
 # Sqlite
 *sqlite3*

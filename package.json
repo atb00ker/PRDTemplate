@@ -6,9 +6,9 @@
   "scripts": {
     "react": "webpack serve --open --mode development",
     "build": "webpack --mode production",
-    "server": "python src/server/manage.py runserver",
-    "migrate": "python src/server/manage.py migrate",
-    "makemigrations": "python src/server/manage.py makemigrations"
+    "server": "python src/manage.py runserver",
+    "migrate": "python src/manage.py migrate",
+    "makemigrations": "python src/manage.py makemigrations"
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",
