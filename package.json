@@ -4,8 +4,11 @@
   "description": "PRD",
   "author": "Ajay Tripathi <ajay39in@gmail.com> (https://atb00ker.github.io)",
   "scripts": {
-    "react-start": "webpack serve --open --mode development",
-    "react-build": "webpack --mode production"
+    "react": "webpack serve --open --mode development",
+    "build": "webpack --mode production",
+    "server": "python src/server/manage.py runserver",
+    "migrate": "python src/server/manage.py migrate",
+    "makemigrations": "python src/server/manage.py makemigrations"
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",

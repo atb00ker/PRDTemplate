@@ -4,6 +4,13 @@ node_modules
 .tmp
 node_build/
 
+# Python/Django environment
+Pipfile
+local_settings.py
+
+# Sqlite
+*sqlite3*
+
 # Misc
 .DS_Store
 ._*

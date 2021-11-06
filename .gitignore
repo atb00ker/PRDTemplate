@@ -6,6 +6,13 @@ dist/
 .env
 node_build/
 
+# Python/Django environment
+Pipfile
+local_settings.py
+
+# Sqlite
+*sqlite3*
+
 # Testing
 coverage/
 
