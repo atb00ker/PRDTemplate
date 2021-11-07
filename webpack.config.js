@@ -7,10 +7,14 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.bundle.js',
-    chunkFilename: '[id].js'
+    chunkFilename: '[id].js',
+    publicPath: '/'
   },
   devServer: {
     port: 8010,
+    static: {
+      directory: path.join(__dirname, 'dist')
+    },
     historyApiFallback: true,
   },
   resolve: {
@@ -24,19 +28,55 @@ module.exports = {
         use: { loader: 'babel-loader' }
       },
       {
-        test: /\.css$/,
-        exclude: /node_modules/,
+        test: /\.m?js/,
+        resolve: {
+          fullySpecified: false
+        }
+      },
+      {
+        test: /\.s[ac]ss$/i,
         use: [
-          'style-loader',
-          'css-loader'
+          "style-loader",
+          "css-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              implementation: require("sass"),
+              sassOptions: {
+                fiber: false,
+              },
+            },
+          },
         ]
       },
       {
-        test: /\.(png|jpe?g|gif)$/,
-        loader: 'url-loader',
-        options: {
-          limit: '10000',
-          name: 'img/[name].[ext]'
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-url-loader',
+            options: {
+              limit: 10000,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(jpe?g|png|gif|ico)$/i,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'images/'
+          }
+        }]
+      },
+      {
+        test: /\.html$/,
+        use: {
+          loader: 'html-loader',
+          options: {
+            sources: true,
+          }
         }
       }
     ]
@@ -44,6 +84,7 @@ module.exports = {
   plugins: [
     new Dotenv(),
     new HtmlWebpackPlugin({
+      favicon: __dirname +  '/src/views/assets/icons/favicon64.png',
       template: __dirname + '/src/views/index.html',
       filename: 'index.html',
       inject: 'body'

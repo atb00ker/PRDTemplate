@@ -1,17 +1,16 @@
 {
   "compilerOptions": {
-    "jsx": "react",
-    "target": "ES2020",
+    "target": "es6",
     "module": "commonjs",
     "strict": true,
-    "outDir": "./node_build",
+    "jsx": "react",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "**/*.tsx"
+    "**/*.ts",
+    "**/*.tsx",
+    "./src/views/types/modules/*.d.ts"
   ]
 }

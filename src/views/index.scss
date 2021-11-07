@@ -1,0 +1,109 @@
+/**************************
+* Dependencies
+**************************/
+@import 'bootstrap/scss/bootstrap';
+
+/**************************
+* Global Styles
+**************************/
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+label {
+  margin: 0;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
+.max-width-960 {
+  max-width: 960px;
+}
+
+.max-width-720 {
+  max-width: 720px;
+}
+
+.button-action-bar {
+  background-color: #f3f3f3;
+  bottom: 0;
+  height: 50px;
+}
+
+.href-no-underline {
+  cursor: pointer;
+  text-decoration: unset;
+}
+
+.d-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-href {
+  text-decoration: unset;
+  color: white;
+}
+
+.button-href:hover {
+  color: white;
+}
+
+/**************************
+* Scrollbar
+**************************/
+
+:root {
+  scrollbar-color: #888 #f1f1f1 !important;
+  scrollbar-width: thin !important;
+}
+
+/* width */
+:root::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+:root::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+:root::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+:root::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/**************************
+* Fonts
+**************************/
+
+@font-face {
+  font-family: RobotoRegular, sans-serif;
+  src: url(./assets/fonts/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: RobotoHeavy, sans-serif;
+  src: url(./assets/fonts/Roboto/Roboto-Bold.ttf);
+}
+
+.roboto-regular {
+  font-family: RobotoRegular, sans-serif;
+}
+
+.roboto-bold {
+  font-family: RobotoHeavy, sans-serif;
+}
