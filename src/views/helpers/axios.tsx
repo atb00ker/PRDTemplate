@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { ServerPath } from '../enums/UrlPath';
-import { ILogin, IToken } from '../types/User';
+import { ILogin, ISignUp, IToken } from '../types/User';
 const port = location.protocol === 'http:' ? process.env.REACT_APP_PORT : '443';
 
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
@@ -16,6 +16,13 @@ const getAuthHeader = (token: string) => {
 const commonErrorMsg = (path: string, error: HTTPError) => {
   const url = new URL(path, axios.defaults.baseURL).toString();
   console.error(`Cant't get ${url} because ${error}`);
+};
+
+export const signUpRequest = (userData: ISignUp): Promise<HTTPResponse<string>> => {
+  return axios.post(ServerPath.Register, userData).catch((error: HTTPError) => {
+    commonErrorMsg(ServerPath.Register, error);
+    throw error;
+  });
 };
 
 export const getAuthTokenRequest = (credentials: ILogin): Promise<HTTPResponse<IToken>> => {

@@ -4,16 +4,15 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/esm/Container';
-import AuthBlockerImage from '../../assets/illustrations/website-auth-1.svg';
 import { Redirect, useHistory } from 'react-router';
-import Image from 'react-bootstrap/Image';
 import Form from 'react-bootstrap/Form';
 import { getAuthTokenRequest, HTTPResponse } from '../../helpers/axios';
-import { IAuth, IAuthDispatcherUser, ILogin, IToken } from '../../types/User';
+import { IAuthDispatcherUser, ILogin, IToken } from '../../types/User';
 import { AuthContext } from '../../components/Authentication/AuthProvider';
 import './login.scss';
 import { AuthReducer } from '../../enums/Reducers';
 import { RouterPath } from '../../enums/UrlPath';
+import { AuthRequiredImage } from '../../components/ContentState/AuthRequiredImage';
 
 const Login = () => {
   const auth = useContext(AuthContext);
@@ -37,7 +36,7 @@ const Login = () => {
           username: formValues.username,
         };
         auth.dispatcher({ type: AuthReducer.Login, user });
-        history.push('/');
+        history.push(RouterPath.Dashboard);
       })
       .catch((error: Error) => {
         console.error(error);
@@ -51,15 +50,7 @@ const Login = () => {
     <Container>
       <Row>
         <Col>
-          <div className='text-center d-flex' style={{ height: '550px' }}>
-            <div className='text-center m-auto'>
-              <Image
-                style={{ maxHeight: '550px', width: '100%' }}
-                src={AuthBlockerImage}
-                alt='Provide Credentials'
-              />
-            </div>
-          </div>
+          <AuthRequiredImage height='550px' width='100%' imgHeight='550px'  />
           <Card id='login-form-card'>
             <Card.Body>
               <Card.Title>

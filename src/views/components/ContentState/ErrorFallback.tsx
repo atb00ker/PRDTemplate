@@ -1,12 +1,14 @@
 import React from 'react';
 import { FallbackProps } from 'react-error-boundary';
 
-export function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
+const ErrorFallback: React.FC<FallbackProps> = ({ error, resetErrorBoundary }) => {
   return (
     <div role='alert'>
       <p>Something went wrong:</p>
-      <pre>{error?.message}</pre>
+      <pre>{error.message}</pre>
       <button onClick={resetErrorBoundary}>Try again</button>
     </div>
   );
-}
+};
+
+export { ErrorFallback };

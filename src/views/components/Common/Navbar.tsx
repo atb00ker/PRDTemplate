@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import LogoThinImage from '../../assets/icons/logo-thin.png';
 import { RouterPath } from '../../enums/UrlPath';
 import { AuthContext } from '../Authentication/AuthProvider';
@@ -13,10 +13,11 @@ import { deleteAuthTokenRequest, HTTPResponse } from '../../helpers/axios';
 
 const Navbar = () => {
   const auth = useContext(AuthContext);
-
+  const history = useHistory();
   const authLogout = () => {
     deleteAuthTokenRequest(auth.state.token).then((_: HTTPResponse<string>) => {
       auth.dispatcher({ type: AuthReducer.Logout });
+      history.push(RouterPath.Home);
     });
   };
 
@@ -54,11 +55,18 @@ const Navbar = () => {
             </Button>
           )}
           {auth.state.isReady && !auth.state.isAuthenticated && (
-            <Link to={RouterPath.Login}>
-              <Button className='m-1 me-4 btn-sm' variant='primary'>
-                Login
-              </Button>
-            </Link>
+            <>
+              <Link to={RouterPath.SignUp}>
+                <Button className='m-1 btn-sm' variant='primary'>
+                  Sign Up
+                </Button>
+              </Link>
+              <Link to={RouterPath.Login}>
+                <Button className='m-1 me-4 btn-sm' variant='primary'>
+                  Login
+                </Button>
+              </Link>
+            </>
           )}
           {auth.state.isReady && auth.state.isAuthenticated && (
             <Button className='m-1 me-4 btn-sm' variant='danger' onClick={authLogout}>

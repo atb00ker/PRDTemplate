@@ -1,4 +1,10 @@
 // React Forms
+export type ISignUp = {
+  username: string;
+  email: string;
+  password: string;
+};
+
 export type ILogin = {
   username: string;
   password: string;
