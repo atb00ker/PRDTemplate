@@ -11,14 +11,14 @@ export type IToken = {
 // AuthContext
 
 export type IAuthDispatcher = {
-  type: string,
-  user?: IAuthDispatcherUser
+  type: string;
+  user?: IAuthDispatcherUser;
 };
 
 export type IAuthContext = {
-  state: IAuth,
-  dispatcher: React.Dispatch<IAuthDispatcher>
-}
+  state: IAuth;
+  dispatcher: React.Dispatch<IAuthDispatcher>;
+};
 
 export type IAuthDispatcherUser = {
   username: string;

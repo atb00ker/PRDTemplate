@@ -1,9 +1,9 @@
-import React from "react";
-import { FallbackProps } from "react-error-boundary";
+import React from 'react';
+import { FallbackProps } from 'react-error-boundary';
 
 export function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
   return (
-    <div role="alert">
+    <div role='alert'>
       <p>Something went wrong:</p>
       <pre>{error?.message}</pre>
       <button onClick={resetErrorBoundary}>Try again</button>
