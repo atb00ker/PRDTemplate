@@ -5,6 +5,7 @@
   "author": "Ajay Tripathi <ajay39in@gmail.com> (https://atb00ker.github.io)",
   "scripts": {
     "react": "webpack serve --open --mode development",
+    "format": "prettier --write \"src/**/*.(js|ts|tsx)\"",
     "build": "webpack --mode production",
     "server": "python src/manage.py runserver",
     "migrate": "python src/manage.py migrate",
